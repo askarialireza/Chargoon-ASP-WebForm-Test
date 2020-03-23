@@ -1,0 +1,96 @@
+﻿h5 {
+    padding:5px 10px;
+    margin:0;
+}
+ul{
+    margin:0;
+}
+label {
+    line-height: 38px;
+    margin: 0;
+    font-weight: bold;
+}
+.card {
+    padding: 0px !important;
+    background-color: #f8f9fa !important;
+    border: none;
+    border-right: 5px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 1rem !important;
+}
+
+.button-group {
+    padding: 0px !important
+}
+
+.form-group:last-of-type {
+    margin-bottom: 0px !important;
+}
+.btn {
+    color:white !important;
+}
+
+.btn-primary {
+    border-bottom: 5px solid #0069d9;
+}
+
+.btn-secondary {
+    border-bottom: 5px solid #5a6268;
+}
+
+.btn-info {
+    border-bottom: 5px solid #138496;
+}
+
+.btn-warning {
+    border-bottom: 5px solid #e0a800;
+}
+
+.btn-light {
+    border-bottom: 5px solid #e2e6ea;
+}
+
+.btn-success {
+    border-bottom: 5px solid #218838;
+}
+
+.btn-danger {
+    border-bottom: 5px solid #c82333;
+}
+
+.alert {
+    border: 0;
+}
+
+.alert-danger {
+    border-right: 5px solid #721c24;
+}
+
+.alert-info {
+    border-right: 5px solid #0c5460;
+}
+
+.alert-primary {
+    border-right: 5px solid #004085;
+}
+
+.alert-secondary {
+    border-right: 5px solid #383d41;
+}
+
+.alert-warning {
+    border-right: 5px solid #856404;
+}
+
+.alert-light {
+    border-right: 5px solid #818182;
+}
+
+.alert-success {
+    border-right: 5px solid #155724;
+}
+
+.alert-
+
+.rtl .modal-header .close, [dir="rtl"] .modal-header .close {
+    margin: -15px;
+}

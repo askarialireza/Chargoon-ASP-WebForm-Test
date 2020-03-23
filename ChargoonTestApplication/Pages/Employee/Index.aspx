@@ -5,7 +5,7 @@
     <h5>فهرست پرسنل</h5>
 
     <%
-        if (Services.EmployeeService.GetAllWithFullDetails().Count > 0)
+        if (Services.EmployeeService.GetAllWithFullDetails().Count() > 0)
         {
     %>
     <div class="table-responsive">

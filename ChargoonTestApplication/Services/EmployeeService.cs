@@ -9,266 +9,106 @@ namespace Services
 
         public static System.Collections.Generic.IEnumerable<Models.Employee> GetAll()
         {
-            //System.Collections.Generic.List<Models.Employee> employees = new System.Collections.Generic.List<Models.Employee>();
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
+            {
+                var varList =
+                  connection.Query<Models.Employee>("GetEmployees", commandType: System.Data.CommandType.StoredProcedure);
 
-            //Infrastructure.DatabaseConnection.Connection.Open();
-
-            //System.Data.SqlClient.SqlCommand oSqlCommand =
-            //    new System.Data.SqlClient.SqlCommand("GetEmployees", Infrastructure.DatabaseConnection.Connection);
-
-            //oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-            //System.Data.SqlClient.SqlDataReader oSqlDataReader = oSqlCommand.ExecuteReader();
-
-            //Models.Employee oEmployee = null;
-
-            //if (oSqlDataReader.HasRows)
-            //{
-            //    while (oSqlDataReader.Read())
-            //    {
-            //        oEmployee = new Models.Employee();
-
-            //        oEmployee.Id = System.Convert.ToInt32(oSqlDataReader["Id"]);
-            //        oEmployee.FirstName = oSqlDataReader["FirstName"].ToString();
-            //        oEmployee.LastName = oSqlDataReader["LastName"].ToString();
-            //        oEmployee.NationalCode = oSqlDataReader["NationalCode"].ToString();
-            //        oEmployee.BirthDate = System.Convert.ToDateTime(oSqlDataReader["BirthDate"]);
-
-            //        employees.Add(oEmployee);
-            //    }
-            //}
-
-            //oSqlCommand.Dispose();
-
-            //Infrastructure.DatabaseConnection.Connection.Close();
-
-
-            //return employees;
+                return varList;
+            }
         }
 
-        public static System.Collections.Generic.List<ViewModels.ListEmployeesViewModel> GetAllWithFullDetails()
+        public static System.Collections.Generic.IEnumerable<ViewModels.ListEmployeesViewModel> GetAllWithFullDetails()
         {
-            System.Collections.Generic.List<ViewModels.ListEmployeesViewModel> employees = new System.Collections.Generic.List<ViewModels.ListEmployeesViewModel>();
-
-            Infrastructure.DatabaseConnection.Connection.Open();
-
-            System.Data.SqlClient.SqlCommand oSqlCommand =
-                new System.Data.SqlClient.SqlCommand("GetEmployeesWithFullDetails", Infrastructure.DatabaseConnection.Connection);
-
-            oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-            System.Data.SqlClient.SqlDataReader oSqlDataReader = oSqlCommand.ExecuteReader();
-
-            ViewModels.ListEmployeesViewModel oEmployee = null;
-
-            if (oSqlDataReader.HasRows)
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
             {
-                while (oSqlDataReader.Read())
-                {
-                    oEmployee = new ViewModels.ListEmployeesViewModel();
+                var varList =
+                  connection.Query<ViewModels.ListEmployeesViewModel>("GetEmployeesWithFullDetails", commandType: System.Data.CommandType.StoredProcedure);
 
-                    oEmployee.Id = System.Convert.ToInt32(oSqlDataReader["Id"]);
-                    oEmployee.FirstName = oSqlDataReader["FirstName"].ToString();
-                    oEmployee.LastName = oSqlDataReader["LastName"].ToString();
-                    oEmployee.NationalCode = oSqlDataReader["NationalCode"].ToString();
-                    oEmployee.BirthDate = System.Convert.ToDateTime(oSqlDataReader["BirthDate"]);
-                    oEmployee.EmploymentDate = System.Convert.ToDateTime(oSqlDataReader["EmploymentDate"]);
-                    oEmployee.EmploymentType = oSqlDataReader["EmploymentType"].ToString();
-
-                    employees.Add(oEmployee);
-                }
+                return varList;
             }
-
-            oSqlCommand.Dispose();
-
-            Infrastructure.DatabaseConnection.Connection.Close();
-
-
-            return employees;
-
         }
 
         public static ViewModels.EditEmployeeViewModel GetWithFullDetails(int id)
         {
-            Infrastructure.DatabaseConnection.Connection.Open();
-
-            System.Data.SqlClient.SqlCommand oSqlCommand =
-                new System.Data.SqlClient.SqlCommand("GetEmployeeWithFullDetails", Infrastructure.DatabaseConnection.Connection);
-
-            oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-            oSqlCommand.Parameters.AddWithValue("@Id", id);
-
-            System.Data.SqlClient.SqlDataReader oSqlDataReader = oSqlCommand.ExecuteReader();
-
-            ViewModels.EditEmployeeViewModel oEmployee = null;
-
-            
-            if (oSqlDataReader.HasRows)
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
             {
-                oEmployee = new ViewModels.EditEmployeeViewModel();
-                
-                while(oSqlDataReader.Read())
-                {
-                    oEmployee.Id = System.Convert.ToInt32(oSqlDataReader["Id"]);
-                    oEmployee.FirstName = oSqlDataReader["FirstName"].ToString();
-                    oEmployee.LastName = oSqlDataReader["LastName"].ToString();
-                    oEmployee.NationalCode = oSqlDataReader["NationalCode"].ToString();
-                    oEmployee.BirthDate = System.Convert.ToDateTime(oSqlDataReader["BirthDate"]);
-                    oEmployee.EmploymentDate = System.Convert.ToDateTime(oSqlDataReader["EmploymentDate"]);
-                    oEmployee.EmploymentType = oSqlDataReader["EmploymentType"].ToString();
-                }
+                ViewModels.EditEmployeeViewModel model = null;
+
+                model = connection.QueryFirstOrDefault<ViewModels.EditEmployeeViewModel>
+                        ("GetEmployeeWithFullDetails", param: new { Id = id }, commandType: System.Data.CommandType.StoredProcedure);
+
+                return model;
             }
-
-            oSqlCommand.Dispose();
-
-            Infrastructure.DatabaseConnection.Connection.Close();
-
-            return oEmployee;
         }
 
         public static int CreateEmployee(ViewModels.CreateEmployeeViewModel oViewModel)
         {
-            try
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
             {
-                Infrastructure.DatabaseConnection.Connection.Open();
+                int result = 3;
 
-                System.Data.SqlClient.SqlCommand oSqlCommand =
-                    new System.Data.SqlClient.SqlCommand("CreateEmployee", Infrastructure.DatabaseConnection.Connection);
+                Dapper.DynamicParameters parameters = new Dapper.DynamicParameters();
 
-                oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                parameters.Add("@FirstName", oViewModel.FirstName);
+                parameters.Add("@LastName", oViewModel.LastName);
+                parameters.Add("@NationalCode", oViewModel.NationalCode);
+                parameters.Add("@BirthDate", System.Convert.ToDateTime(oViewModel.BirthDate));
+                parameters.Add("@EmploymentDate", System.Convert.ToDateTime(oViewModel.EmploymentDate));
+                parameters.Add("@EmploymentTypeId", oViewModel.EmploymentType);
+                parameters.Add("@ResultCode", result, direction: System.Data.ParameterDirection.Output);
 
-                oSqlCommand.Parameters.AddWithValue("@FirstName", oViewModel.FirstName);
-                oSqlCommand.Parameters.AddWithValue("@LastName", oViewModel.LastName);
-                oSqlCommand.Parameters.AddWithValue("@NationalCode", oViewModel.NationalCode);
-                oSqlCommand.Parameters.AddWithValue("@BirthDate", System.Convert.ToDateTime(oViewModel.BirthDate));
-                oSqlCommand.Parameters.AddWithValue("@EmploymentDate", System.Convert.ToDateTime(oViewModel.EmploymentDate));
-                oSqlCommand.Parameters.AddWithValue("@EmploymentTypeId", oViewModel.EmploymentType);              
+                connection.Execute("CreateEmployee", param: parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                System.Data.SqlClient.SqlParameter oSqlParameter = 
-                    oSqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ResultCode", System.Data.DbType.Int32));
-
-                oSqlParameter.Direction = System.Data.ParameterDirection.Output;
-
-                oSqlCommand.ExecuteNonQuery();
-
-                oSqlCommand.Dispose();
-
-                int result = System.Convert.ToInt32(oSqlCommand.Parameters["@ResultCode"].Value);
+                result = parameters.Get<int>("@ResultCode");
 
                 return result;
-            }
-            catch (System.Exception ex)
-            {
-                return 3;
-            }
-            finally
-            {
-                Infrastructure.DatabaseConnection.Connection.Close();
             }
         }
 
 
         public static int UpdateEmployee(ViewModels.UpdateEmployeeViewModel oViewModel)
         {
-            try
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
             {
-                Infrastructure.DatabaseConnection.Connection.Open();
+                int result = 2;
 
-                System.Data.SqlClient.SqlCommand oSqlCommand =
-                    new System.Data.SqlClient.SqlCommand("UpdateEmployee", Infrastructure.DatabaseConnection.Connection);
+                Dapper.DynamicParameters parameters = new Dapper.DynamicParameters();
 
-                oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                parameters.Add("@Id", oViewModel.Id);
+                parameters.Add("@FirstName", oViewModel.FirstName);
+                parameters.Add("@LastName", oViewModel.LastName);
+                parameters.Add("@NationalCode", oViewModel.NationalCode);
+                parameters.Add("@BirthDate", System.Convert.ToDateTime(oViewModel.BirthDate));
+                parameters.Add("@EmploymentDate", System.Convert.ToDateTime(oViewModel.EmploymentDate));
+                parameters.Add("@EmploymentTypeId", oViewModel.EmploymentType);
+                parameters.Add("@ResultCode", result, direction: System.Data.ParameterDirection.Output);
 
-                oSqlCommand.Parameters.AddWithValue("@Id", oViewModel.Id);
-                oSqlCommand.Parameters.AddWithValue("@FirstName", oViewModel.FirstName);
-                oSqlCommand.Parameters.AddWithValue("@LastName", oViewModel.LastName);
-                oSqlCommand.Parameters.AddWithValue("@NationalCode", oViewModel.NationalCode);
-                oSqlCommand.Parameters.AddWithValue("@BirthDate", System.Convert.ToDateTime(oViewModel.BirthDate));
-                oSqlCommand.Parameters.AddWithValue("@EmploymentDate", System.Convert.ToDateTime(oViewModel.EmploymentDate));
-                oSqlCommand.Parameters.AddWithValue("@EmploymentTypeId", oViewModel.EmploymentType);
+                connection.Execute("UpdateEmployee", param: parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                System.Data.SqlClient.SqlParameter oSqlParameter =
-                    oSqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ResultCode", System.Data.DbType.Int32));
-
-                oSqlParameter.Direction = System.Data.ParameterDirection.Output;
-
-                oSqlCommand.ExecuteNonQuery();
-
-                oSqlCommand.Dispose();
-
-                int result = System.Convert.ToInt32(oSqlCommand.Parameters["@ResultCode"].Value);
+                result = parameters.Get<int>("@ResultCode");
 
                 return result;
-            }
-            catch (System.Exception ex)
-            {
-                return 3;
-            }
-            finally
-            {
-                Infrastructure.DatabaseConnection.Connection.Close();
             }
         }
 
 
         public static bool DeleteEmployee(int EmployeeId)
         {
-            bool isSucces = false;
-
-            try
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
             {
-                Infrastructure.DatabaseConnection.Connection.Open();
+                int rows = connection.Execute("DeleteEmployee", param: new { Id = EmployeeId }, commandType: System.Data.CommandType.StoredProcedure);
 
-                System.Data.SqlClient.SqlCommand oSqlCommand =
-                    new System.Data.SqlClient.SqlCommand("DeleteEmployee", Infrastructure.DatabaseConnection.Connection);
-
-                oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-                oSqlCommand.Parameters.AddWithValue("@Id", EmployeeId);
-
-                oSqlCommand.ExecuteNonQuery();
-
-                oSqlCommand.Dispose();
-
-                Infrastructure.DatabaseConnection.Connection.Close();
-            }
-            catch (System.Exception ex)
-            {
-                isSucces = false;
-            }
-
-            isSucces = true;
-
-            return isSucces;
-        }
-
-        public static bool IsNationalCodeExists(string NationalCode)
-        {
-            Infrastructure.DatabaseConnection.Connection.Open();
-
-            System.Data.SqlClient.SqlCommand oSqlCommand =
-                new System.Data.SqlClient.SqlCommand("GetEmployeeByNationalCode", Infrastructure.DatabaseConnection.Connection);
-
-            oSqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-            oSqlCommand.Parameters.AddWithValue("@NationalCode", NationalCode);
-
-
-            System.Data.SqlClient.SqlDataReader oSqlDataReader = oSqlCommand.ExecuteReader();
-
-            if (oSqlDataReader.HasRows)
-            {
-                oSqlCommand.Dispose();
-                Infrastructure.DatabaseConnection.Connection.Close();
-                return true;
-            }
-            else
-            {
-                oSqlCommand.Dispose();
-                Infrastructure.DatabaseConnection.Connection.Close();
-                return false;
+                if(rows != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
+
     }
 }

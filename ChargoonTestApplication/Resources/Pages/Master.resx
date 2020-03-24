@@ -117,19 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Date" xml:space="preserve">
-    <value>تاریخ استخدام</value>
+  <data name="LinkCreateEmployee" xml:space="preserve">
+    <value>ایجاد پرسنل</value>
   </data>
-  <data name="Id" xml:space="preserve">
-    <value>شناسه</value>
+  <data name="LinkCreateEmploymentType" xml:space="preserve">
+    <value>ایجاد نوع استخدام</value>
   </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>فعال/غیرفعال</value>
+  <data name="LinkEmployee" xml:space="preserve">
+    <value>پرسنل</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>عنوان</value>
-  </data>
-  <data name="Type" xml:space="preserve">
+  <data name="LinkEmploymentType" xml:space="preserve">
     <value>نوع استخدام</value>
+  </data>
+  <data name="LinkHomePage" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="LinkIndexEmployee" xml:space="preserve">
+    <value>فهرست پرسنل</value>
+  </data>
+  <data name="LinkIndexEmploymentType" xml:space="preserve">
+    <value>فهرست انواع استخدام</value>
+  </data>
+  <data name="NavbarTitle" xml:space="preserve">
+    <value>پروژه تستی شرکت چارگون</value>
   </data>
 </root>

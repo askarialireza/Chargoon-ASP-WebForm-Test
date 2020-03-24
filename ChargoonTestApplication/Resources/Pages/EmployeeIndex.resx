@@ -117,19 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Date" xml:space="preserve">
-    <value>تاریخ استخدام</value>
+  <data name="CreateEmployee" xml:space="preserve">
+    <value>ایجاد پرسنل</value>
   </data>
-  <data name="Id" xml:space="preserve">
-    <value>شناسه</value>
+  <data name="EmployeeDeleteQuestion" xml:space="preserve">
+    <value>آیا مطمئن به حذف پرسنل می‌باشید؟</value>
   </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>فعال/غیرفعال</value>
+  <data name="EmployeeDeleteTitle" xml:space="preserve">
+    <value>حذف پرسنل</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>عنوان</value>
+  <data name="SearchButton" xml:space="preserve">
+    <value>جست‌وجو پرسنل</value>
   </data>
-  <data name="Type" xml:space="preserve">
-    <value>نوع استخدام</value>
+  <data name="SearchEmployee" xml:space="preserve">
+    <value>جست‌وجو پرسنل :</value>
+  </data>
+  <data name="SearchFoundResult" xml:space="preserve">
+    <value> مورد یافت شد.</value>
+  </data>
+  <data name="SearchInputPlaceholder" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="SearchNoResult" xml:space="preserve">
+    <value>هیچ پرسنلی با مشخصات وارد شده یافت نشد.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>فهرست پرسنل</value>
   </data>
 </root>

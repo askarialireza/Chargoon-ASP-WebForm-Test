@@ -1,7 +1,18 @@
-﻿h5 {
-    padding:5px 10px;
-    margin:0;
+﻿@media only screen and (max-width: 768px)  {
+    .form-group {
+        width: 100% !important;
+    }
 }
+
+td, th {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+th {
+    cursor: pointer;
+}
+
 ul{
     margin:0;
 }
@@ -25,7 +36,7 @@ label {
 .form-group:last-of-type {
     margin-bottom: 0px !important;
 }
-.btn {
+a .btn {
     color:white !important;
 }
 
@@ -93,4 +104,8 @@ label {
 
 .rtl .modal-header .close, [dir="rtl"] .modal-header .close {
     margin: -15px;
+}
+
+#search-no-result , #search-found-result {
+    display: none;
 }

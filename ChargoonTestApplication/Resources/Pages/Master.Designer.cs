@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Resources.Models {
+namespace Resources.Pages {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Resources.Models {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Employment {
+    public class Master {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Employment() {
+        internal Master() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources.Models {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChargoonTestApplication.Resources.Models.Employment", typeof(Employment).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChargoonTestApplication.Resources.Pages.Master", typeof(Master).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,74 @@ namespace Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تاریخ استخدام.
+        ///   Looks up a localized string similar to ایجاد پرسنل.
         /// </summary>
-        public static string Date {
+        public static string LinkCreateEmployee {
             get {
-                return ResourceManager.GetString("Date", resourceCulture);
+                return ResourceManager.GetString("LinkCreateEmployee", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to شناسه.
+        ///   Looks up a localized string similar to ایجاد نوع استخدام.
         /// </summary>
-        public static string Id {
+        public static string LinkCreateEmploymentType {
             get {
-                return ResourceManager.GetString("Id", resourceCulture);
+                return ResourceManager.GetString("LinkCreateEmploymentType", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to فعال/غیرفعال.
+        ///   Looks up a localized string similar to پرسنل.
         /// </summary>
-        public static string IsActive {
+        public static string LinkEmployee {
             get {
-                return ResourceManager.GetString("IsActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to عنوان.
-        /// </summary>
-        public static string Name {
-            get {
-                return ResourceManager.GetString("Name", resourceCulture);
+                return ResourceManager.GetString("LinkEmployee", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to نوع استخدام.
         /// </summary>
-        public static string Type {
+        public static string LinkEmploymentType {
             get {
-                return ResourceManager.GetString("Type", resourceCulture);
+                return ResourceManager.GetString("LinkEmploymentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to صفحه اصلی.
+        /// </summary>
+        public static string LinkHomePage {
+            get {
+                return ResourceManager.GetString("LinkHomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to فهرست پرسنل.
+        /// </summary>
+        public static string LinkIndexEmployee {
+            get {
+                return ResourceManager.GetString("LinkIndexEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to فهرست انواع استخدام.
+        /// </summary>
+        public static string LinkIndexEmploymentType {
+            get {
+                return ResourceManager.GetString("LinkIndexEmploymentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to پروژه تستی شرکت چارگون.
+        /// </summary>
+        public static string NavbarTitle {
+            get {
+                return ResourceManager.GetString("NavbarTitle", resourceCulture);
             }
         }
     }

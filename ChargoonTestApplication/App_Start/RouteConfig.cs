@@ -36,7 +36,27 @@ namespace ChargoonTestApplication
             routes.MapPageRoute(
                 "DeleteEmployee",
                 "Employee/Delete/{id}",
-                "~/Pages/Employee/Index.aspx/DeleteEmployee"
+                "~/Pages/Employee/Index.aspx/DeleteEmployee?id={id}"
+            );
+            routes.MapPageRoute(
+                "SearchEmployee",
+                "Employee/Search/",
+                "~/Pages/Employee/Search.aspx"
+            );
+            routes.MapPageRoute(
+                "CreateEmploymentType",
+                "EmploymentType/Create",
+                "~/Pages/EmploymentType/Create.aspx"
+            );
+            routes.MapPageRoute(
+                "EditEmploymentType",
+                "EmploymentType/Edit",
+                "~/Pages/EmploymentType/Edit.aspx"
+            );
+            routes.MapPageRoute(
+                "IndexEmploymentTypes",
+                "EmploymentType/Index",
+                "~/Pages/EmploymentType/Index.aspx"
             );
             routes.MapPageRoute(
                 "Error",

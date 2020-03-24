@@ -6,75 +6,58 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-
-    <%--    <link href="~/Content/bootstrap.css" rel="stylesheet" />--%>
     <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
-    <%= System.Web.Optimization.Scripts.Render("~/Scripts/jquery") %>
 </head>
 <body class="rtl">
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--Site Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-            </Scripts>
-        </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1">پروژه تستی شرکت چارگون</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">صفحه اصلی</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           پرسنل
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/Employee/Create">ایجاد پرسنل</a>
-                            <a class="dropdown-item" href="/Employee/Index">فهرست پرسنل</a>
-                            <a class="dropdown-item" href="/Employee/Search">جست‌وجو پرسنل</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           نوع استخدام
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/EmploymentType/Create">ایجاد نوع استخدام</a>
-                            <a class="dropdown-item" href="/EmploymentType/Index">فهرست انواع استخدام</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <%= System.Web.Optimization.Scripts.Render("~/bundles/WebFormsJs") %>
+    <%= System.Web.Optimization.Scripts.Render("~/bundles/MsAjaxJs") %>
+    <%= System.Web.Optimization.Scripts.Render("~/bundles/modernizr") %>
+    <%= System.Web.Optimization.Scripts.Render("~/Scripts/jquery") %>
 
-        <div class="container body-content">
-            <div class="row py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><%= Resources.Pages.Master.NavbarTitle %></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><%= Resources.Pages.Master.LinkHomePage %></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= Resources.Pages.Master.LinkEmployee %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Employee/Create"><%= Resources.Pages.Master.LinkCreateEmployee %></a>
+                        <a class="dropdown-item" href="/Employee/Index"><%= Resources.Pages.Master.LinkIndexEmployee %></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= Resources.Pages.Master.LinkEmploymentType %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/EmploymentType/Create"><%= Resources.Pages.Master.LinkCreateEmploymentType %></a>
+                        <a class="dropdown-item" href="/EmploymentType/Index"><%= Resources.Pages.Master.LinkIndexEmploymentType %></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        <div class="row py-3">
+            <div class="col-12">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
         </div>
+    </div>
 
-    </form>
 </body>
 </html>

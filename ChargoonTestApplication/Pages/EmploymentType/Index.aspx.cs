@@ -13,5 +13,39 @@ namespace ChargoonTestApplication.Pages.EmploymentType
         {
 
         }
+
+        [System.Web.Services.WebMethod]
+        public static int EditEmploymentType(int id, string name, bool isActive)
+        {
+            Models.EmploymentType employmentType = new Models.EmploymentType
+            {
+                Id = id,
+                Name = name,
+                IsActive = isActive
+            };
+
+            if (string.IsNullOrWhiteSpace(employmentType.Name) == true)
+            {
+                return 1;
+            }
+            else
+            {
+                return (Services.EmploymentTypeService.UpdateEmploymentType(employmentType));
+            }
+        }
+
+        [System.Web.Services.WebMethod]
+        public static bool DeleteEmploymentType(int id)
+        {
+            if (Services.EmploymentTypeService.DeleteEmploymentType(id) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

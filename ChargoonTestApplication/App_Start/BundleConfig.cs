@@ -36,10 +36,9 @@ namespace ChargoonTestApplication
 
             BundleTable.Bundles.Add(new ScriptBundle("~/Scripts/jquery").Include(new string[] {
                     "~/Scripts/jquery-3.4.1.js",
-                    "~/Scripts/popper.js",
+                    "~/Scripts/umd/popper.js",
                     "~/Scripts/bootstrap.js"
                 }));
-
 
         }
     }

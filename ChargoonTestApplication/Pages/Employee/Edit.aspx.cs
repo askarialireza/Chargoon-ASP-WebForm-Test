@@ -21,7 +21,7 @@ namespace ChargoonTestApplication.Pages.Employee
 
                 Infrastructure.Validation.ModelIsValid = true;
 
-                EmploymentType.DataSource = Services.EmploymentTypeService.GetAll();
+                EmploymentType.DataSource = Services.EmploymentTypeService.GetActives();
 
                 EmploymentType.DataBind();
 

@@ -46,5 +46,75 @@ namespace Services
                 return varList;
             }
         }
+
+        public static System.Collections.Generic.IEnumerable<Models.EmploymentType> GetActives()
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
+            {
+                var varList = connection.Query<Models.EmploymentType>
+                    ("GetActiveEmploymentTypes", commandType: System.Data.CommandType.StoredProcedure);
+
+                return varList;
+            }
+        }
+
+        public static int CreateEmploymentType(Models.EmploymentType model)
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
+            {
+                int result = 2;
+
+                Dapper.DynamicParameters parameters = new Dapper.DynamicParameters();
+
+                parameters.Add("@Name", model.Name);
+                parameters.Add("@IsActive", model.IsActive);
+                parameters.Add("@ResultCode", result, direction: System.Data.ParameterDirection.Output);
+
+                connection.Execute("CreateEmploymentType", param: parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+                result = parameters.Get<int>("@ResultCode");
+
+                return result;
+            }
+        }
+
+        public static int UpdateEmploymentType(Models.EmploymentType employmentType)
+        {
+
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
+            {
+                int result = 1;
+
+                Dapper.DynamicParameters parameters = new Dapper.DynamicParameters();
+
+                parameters.Add("@Id", employmentType.Id);
+                parameters.Add("@Name", employmentType.Name);
+                parameters.Add("@IsActive", employmentType.IsActive);
+                parameters.Add("@ResultCode", result, direction: System.Data.ParameterDirection.Output);
+
+                connection.Execute("UpdateEmploymentType", param: parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+                result = parameters.Get<int>("@ResultCode");
+
+                return result;
+            }
+        }
+
+        public static bool DeleteEmploymentType(int employmentTypeId)
+        {
+            using (var connection = new System.Data.SqlClient.SqlConnection(Infrastructure.DatabaseConnection.ConnectionString))
+            {
+                int rows = connection.Execute("DeleteEmploymentType", param: new { Id = employmentTypeId }, commandType: System.Data.CommandType.StoredProcedure);
+
+                if (rows != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

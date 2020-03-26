@@ -36,24 +36,28 @@ label {
 .form-group:last-of-type {
     margin-bottom: 0px !important;
 }
-a .btn {
-    color:white !important;
+a:not([href]) {
+    color: white;
+    text-decoration: none;
 }
-
 .btn-primary {
     border-bottom: 5px solid #0069d9;
+    color: white !important;
 }
 
 .btn-secondary {
     border-bottom: 5px solid #5a6268;
+    color: white !important;
 }
 
 .btn-info {
     border-bottom: 5px solid #138496;
+    color: white !important;
 }
 
 .btn-warning {
     border-bottom: 5px solid #e0a800;
+    color: white !important;
 }
 
 .btn-light {
@@ -62,10 +66,12 @@ a .btn {
 
 .btn-success {
     border-bottom: 5px solid #218838;
+    color: white !important;
 }
 
 .btn-danger {
     border-bottom: 5px solid #c82333;
+    color: white !important;
 }
 
 .alert {
@@ -108,4 +114,15 @@ a .btn {
 
 #search-no-result , #search-found-result {
     display: none;
+}
+
+#MainContent_IsActiveRadioButtonList td {
+    text-align: right !important;
+    padding-left: 10px;
+}
+
+#MainContent_IsActiveRadioButtonList_1, #MainContent_IsActiveRadioButtonList_0 {
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
 }

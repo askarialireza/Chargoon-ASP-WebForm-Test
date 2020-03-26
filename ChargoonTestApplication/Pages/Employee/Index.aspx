@@ -10,22 +10,24 @@
         {
     %>
 
-    <form class="form-inline mb-3" >
+    <form class="form-inline mb-3">
         <label class="mr-md-2"><%= Resources.Pages.EmployeeIndex.SearchEmployee %></label>
         <div class="form-group">
             <input class="form-control mb-1 mb-md-0 mr-md-2" id="search-input" placeholder="<%= Resources.Pages.EmployeeIndex.SearchInputPlaceholder %>" />
         </div>
-        <a class="btn btn-sm btn-primary mt-2 mt-md-0 text-white" id="search-button">
+        <a class="btn btn-sm btn-primary mt-2 mt-md-0  mr-md-2 text-white" id="search-button">
             <%= Resources.Pages.EmployeeIndex.SearchButton %>
         </a>
+        <a class="btn btn-sm btn-warning mt-2 mt-md-0 text-white" id="show-all-button" style="display: none">نمایش همه
+        </a>
         <a class="ml-auto btn btn-success text-white" href="/Employee/Create">
-          <%= Resources.Pages.EmployeeIndex.CreateEmployee %>
+            <%= Resources.Pages.EmployeeIndex.CreateEmployee %>
         </a>
     </form>
 
     <div id="search-no-result">
         <div class="alert alert-warning">
-          <label><%= Resources.Pages.EmployeeIndex.SearchNoResult %></label>
+            <label><%= Resources.Pages.EmployeeIndex.SearchNoResult %></label>
         </div>
     </div>
 
@@ -124,6 +126,12 @@
                 $("#search-button").prop("disabled", (value === "") ? true : false);
             });
 
+            $("#show-all-button").on("click", function () {
+                $("#search-input").val('');
+                $("#search-button").click();
+                $("#show-all-button").toggle(false);
+            });
+
             $("#search-button").on("click", function () {
                 var value = $("#search-input").val().toLowerCase();
                 var found = false;
@@ -141,6 +149,7 @@
                     $(this).toggle(fullName.indexOf(value) > -1)
                 });
                 if (count > 0 && value !== "") {
+                    $("#show-all-button").toggle(true);
                     $("#result-count").html(count);
                     $("#search-found-result").toggleClass("d-none", !found);
                 }
@@ -148,48 +157,10 @@
                 $("#search-found-result").toggle(count > 0 && found && value !== "");
                 $(".table-responsive").toggleClass("d-none", count == 0 && !found && value !== "");
             });
-
-            $('th').each(function (col) {
-                $(this).hover(
-                    function () {
-                        $(this).addClass('focus');
-                    },
-                    function () {
-                        $(this).removeClass('focus');
-                    }
-                );
-                $(this).click(function () {
-                    if ($(this).is('.asc')) {
-                        $(this).removeClass('asc');
-                        $(this).addClass('desc selected');
-                        sortOrder = -1;
-                    } else {
-                        $(this).addClass('asc selected');
-                        $(this).removeClass('desc');
-                        sortOrder = 1;
-                    }
-                    $(this).siblings().removeClass('asc selected');
-                    $(this).siblings().removeClass('desc selected');
-                    var arrData = $('table').find('tbody >tr:has(td)').get();
-                    arrData.sort(function (a, b) {
-                        var val1 = $(a).children('td').eq(col).text().toUpperCase();
-                        var val2 = $(b).children('td').eq(col).text().toUpperCase();
-                        if ($.isNumeric(val1) && $.isNumeric(val2))
-                            return sortOrder == 1 ? val1 - val2 : val2 - val1;
-                        else
-                            return (val1 < val2) ? -sortOrder : (val1 > val2) ? sortOrder : 0;
-                    });
-                    $.each(arrData, function (index, row) {
-                        $('tbody').append(row);
-                    });
-                });
-            });
         });
 
         function openModal(id) {
-
             $('#deleteEmployeeModal').modal();
-
             $("#delete-employee-modal-button").data('employee-id', id);
         }
 

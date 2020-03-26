@@ -11,7 +11,46 @@ namespace ChargoonTestApplication.Pages.EmploymentType
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack != true)
+            {
+                Infrastructure.Validation.ErrorMessages.Clear();
 
+                Infrastructure.Validation.ModelIsValid = true;
+            }
+        }
+
+        protected void SubmitButton_Click(object sender, EventArgs e)
+        {
+            Models.EmploymentType employmentType = new Models.EmploymentType()
+            {
+                IsActive = System.Convert.ToBoolean(IsActiveRadioButtonList.SelectedValue),
+                Name = NameTextBox.Text.Trim(),
+            };
+
+            Infrastructure.Validation.ValidateModel(employmentType);
+
+            if (IsPostBack == true && Infrastructure.Validation.ModelIsValid == true)
+            {
+                int result = Services.EmploymentTypeService.CreateEmploymentType(employmentType);
+
+                switch (result)
+                {
+                    case 0:
+                        {
+                            {
+                                System.Web.HttpContext.Current.Response.RedirectToRoute("IndexEmploymentTypes");
+                                break;
+                            }
+                        }
+                    case 1:
+                        {
+                            Infrastructure.Validation.ErrorMessages.Add("نوع استخدام با عنوان وارد شده در سیستم موجود است.");
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

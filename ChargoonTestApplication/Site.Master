@@ -9,10 +9,10 @@
     <title><%: Page.Title %></title>
 
     <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body class="rtl">
-
     <%= System.Web.Optimization.Scripts.Render("~/bundles/WebFormsJs") %>
     <%= System.Web.Optimization.Scripts.Render("~/bundles/MsAjaxJs") %>
     <%= System.Web.Optimization.Scripts.Render("~/bundles/modernizr") %>

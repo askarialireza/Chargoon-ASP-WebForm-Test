@@ -19,31 +19,31 @@
     <%= System.Web.Optimization.Scripts.Render("~/Scripts/jquery") %>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1"><%= Resources.Pages.Master.NavbarTitle %></span>
+        <span class="navbar-brand mb-0 h1"><%= Resources.Master.NavbarTitle %></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/"><%= Resources.Pages.Master.LinkHomePage %></a>
+                    <a class="nav-link" href="/"><%= Resources.Master.LinkHomePage %></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <%= Resources.Pages.Master.LinkEmployee %>
+                        <%= Resources.Master.LinkEmployee %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/Employee/Create"><%= Resources.Pages.Master.LinkCreateEmployee %></a>
-                        <a class="dropdown-item" href="/Employee/Index"><%= Resources.Pages.Master.LinkIndexEmployee %></a>
+                        <a class="dropdown-item" href="/Employee/Create"><%= Resources.Master.LinkCreateEmployee %></a>
+                        <a class="dropdown-item" href="/Employee/Index"><%= Resources.Master.LinkIndexEmployee %></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <%= Resources.Pages.Master.LinkEmploymentType %>
+                        <%= Resources.Master.LinkEmploymentType %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/EmploymentType/Create"><%= Resources.Pages.Master.LinkCreateEmploymentType %></a>
-                        <a class="dropdown-item" href="/EmploymentType/Index"><%= Resources.Pages.Master.LinkIndexEmploymentType %></a>
+                        <a class="dropdown-item" href="/EmploymentType/Create"><%= Resources.Master.LinkCreateEmploymentType %></a>
+                        <a class="dropdown-item" href="/EmploymentType/Index"><%= Resources.Master.LinkIndexEmploymentType %></a>
                     </div>
                 </li>
             </ul>

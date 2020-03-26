@@ -44,7 +44,7 @@ namespace ChargoonTestApplication.Pages.EmploymentType
                         }
                     case 1:
                         {
-                            Infrastructure.Validation.ErrorMessages.Add("نوع استخدام با عنوان وارد شده در سیستم موجود است.");
+                            Infrastructure.Validation.ErrorMessages.Add(Resources.EmploymentTypeCreate.NameNotValid);
                             break;
                         }
                     default:

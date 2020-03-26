@@ -13,6 +13,14 @@ th {
     cursor: pointer;
 }
 
+hr {
+    margin-top: 0;
+}
+
+.title {
+    padding:10px;
+}
+
 ul{
     margin:0;
 }
@@ -125,4 +133,8 @@ a:not([href]) {
     margin: 0;
     margin-left: 10px;
     padding: 0;
+}
+
+.home-ul a {
+    color: inherit !important;
 }

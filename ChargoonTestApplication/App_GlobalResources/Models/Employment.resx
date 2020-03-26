@@ -117,31 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DatabaseErrorMessage" xml:space="preserve">
-    <value>خطا در پایگاه داده.</value>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ استخدام</value>
   </data>
-  <data name="EmployeeNotFound" xml:space="preserve">
-    <value>کارمند با مشخصات وارد شده یافت نشد.</value>
+  <data name="Id" xml:space="preserve">
+    <value>شناسه</value>
   </data>
-  <data name="NoEmployees" xml:space="preserve">
-    <value>مشخصات هیچ کارمندی در سیستم ثبت نشده است.</value>
+  <data name="IsActive" xml:space="preserve">
+    <value>فعال/غیرفعال</value>
   </data>
-  <data name="PageNotFoundErrorMessage" xml:space="preserve">
-    <value>خطا ! صفحه مورد نظر پیدا نشد.</value>
+  <data name="Name" xml:space="preserve">
+    <value>عنوان</value>
   </data>
-  <data name="RangeErrorMessage" xml:space="preserve">
-    <value>مقدار {0} باید بین  {1} و {2} باشد.</value>
+  <data name="Status" xml:space="preserve">
+    <value>وضعیت</value>
   </data>
-  <data name="RegularExpressionErrorMessage" xml:space="preserve">
-    <value>مقدار {0} نا معتبر است.</value>
-  </data>
-  <data name="ReqiuredErrorMessage" xml:space="preserve">
-    <value>فیلد {0} اجباری است.</value>
-  </data>
-  <data name="StringLengthErrorMessage" xml:space="preserve">
-    <value>طول فیلد {0} باید بین {2} و {1} حرف باشد.</value>
-  </data>
-  <data name="SubmitErrorMessage" xml:space="preserve">
-    <value>خطا در ثبت اطلاعات</value>
+  <data name="Type" xml:space="preserve">
+    <value>نوع استخدام</value>
   </data>
 </root>

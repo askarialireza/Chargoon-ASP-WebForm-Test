@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ChargoonTestApplication.Pages.EmploymentType.Index" %>
+﻿<%@ Page Title="<%$ Resources:EmploymentTypeIndex, Title %>" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ChargoonTestApplication.Pages.EmploymentType.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h5>فهرست انواع استخدام</h5>
+    <h5><%= Resources.EmploymentTypeIndex.Title %></h5>
     <hr />
 
     <% if (Services.EmploymentTypeService.GetAll().Count() > 0)
@@ -10,7 +10,7 @@
 
     <div class="w-100">
         <a class="ml-auto mb-2 btn btn-success text-white float-md-left" href="/EmploymentType/Create">
-            <%= Resources.Pages.EmployeeIndex.CreateEmployee %>
+            <%= Resources.EmploymentTypeIndex.CreateEmploymentType %>
         </a>
     </div>
 
@@ -18,17 +18,17 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <label>درج عنوان اجباری است.</label>
+        <label><%= Resources.EmploymentTypeIndex.NameIsRequired %></label>
     </div>
 
     <div class="table-responsive">
         <table class="table table-sm table-bordered" id="employment-table">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col"><%= Resources.Models.Employment.Id %></th>
-                    <th scope="col"><%= Resources.Models.Employment.Name %></th>
-                    <th scope="col"><%= Resources.Models.Employment.IsActive %></th>
-                    <th scope="col">فعالیت ها</th>
+                    <th scope="col"><%= Resources.Employment.Id %></th>
+                    <th scope="col"><%= Resources.Employment.Name %></th>
+                    <th scope="col"><%= Resources.Employment.IsActive %></th>
+                    <th scope="col"><%= Resources.EmploymentTypeIndex.Actions %></th>
                 </tr>
             </thead>
             <tbody id="employment-table-body">
@@ -80,7 +80,7 @@
     %>
     <div class="col-12">
         <div class="alert alert-warning">
-            <label>هیچ نوع استخدامی در سیستم ثبت نشده است.</label>
+            <label><%= Resources.EmploymentTypeIndex.NoEmploymentTypes %></label>
         </div>
     </div>
     <%
@@ -91,11 +91,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"><%= Resources.Pages.EmployeeIndex.EmployeeDeleteTitle %></h4>
+                    <h4 class="modal-title"><%= Resources.EmploymentTypeIndex.DeleteTitle %></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <label><%= Resources.Pages.EmployeeIndex.EmployeeDeleteQuestion %></label>
+                    <label><%= Resources.EmploymentTypeIndex.DeleteQuestion %></label>
                 </div>
                 <div class="modal-footer">
                     <button id="delete-employment-type-modal-button" data-employee-id="1" class="btn btn-danger" onclick="deleteEmployee()">

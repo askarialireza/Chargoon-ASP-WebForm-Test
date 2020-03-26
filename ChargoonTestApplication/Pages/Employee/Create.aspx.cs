@@ -5,6 +5,7 @@ namespace ChargoonTestApplication.Pages.Employee
     public partial class Create : System.Web.UI.Page
     {
 
+        public bool NoEmploymentType { get; set; }
 
         public System.Collections.Generic.List<string> errorMessages = new System.Collections.Generic.List<string>();
 
@@ -23,6 +24,15 @@ namespace ChargoonTestApplication.Pages.Employee
                 EmploymentType.DataSource = Services.EmploymentTypeService.GetActives();
 
                 EmploymentType.DataBind();
+
+                if (Services.EmploymentTypeService.GetActives().Count() == 0)
+                {
+                    NoEmploymentType = true;
+                }
+                else
+                {
+                    NoEmploymentType = false;
+                }
             }
         }
 
@@ -49,17 +59,17 @@ namespace ChargoonTestApplication.Pages.Employee
                 {
                     case 3:
                         {
-                            Infrastructure.Validation.ErrorMessages.Add(".خطا در ثبت اطلاعات");
+                            Infrastructure.Validation.ErrorMessages.Add(Resources.Messages.SubmitErrorMessage);
                             break;
                         }
                     case 2:
                         {
-                            Infrastructure.Validation.ErrorMessages.Add("تاریخ استخدام نمی‌تواند برابر یا قبل از تاریخ تولد باشد.");
+                            Infrastructure.Validation.ErrorMessages.Add(Resources.EmployeeCreate.DateNotValid);
                             break;
                         }
                     case 1:
                         {
-                            Infrastructure.Validation.ErrorMessages.Add("پرسنل با کد ملی وارد شده موجود است.");
+                            Infrastructure.Validation.ErrorMessages.Add(Resources.EmployeeCreate.NationalCodeNotValid);
                             break;
                         }
                     case 0:

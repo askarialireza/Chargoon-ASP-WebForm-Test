@@ -117,31 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DatabaseErrorMessage" xml:space="preserve">
-    <value>خطا در پایگاه داده.</value>
+  <data name="CreateEmployee" xml:space="preserve">
+    <value>ایجاد پرسنل</value>
   </data>
-  <data name="EmployeeNotFound" xml:space="preserve">
-    <value>کارمند با مشخصات وارد شده یافت نشد.</value>
+  <data name="EmployeeCardTitle" xml:space="preserve">
+    <value>مشخصات فردی</value>
   </data>
-  <data name="NoEmployees" xml:space="preserve">
-    <value>مشخصات هیچ کارمندی در سیستم ثبت نشده است.</value>
+  <data name="EmployeeDeleteQuestion" xml:space="preserve">
+    <value>آیا مطمئن به حذف پرسنل می‌باشید؟</value>
   </data>
-  <data name="PageNotFoundErrorMessage" xml:space="preserve">
-    <value>خطا ! صفحه مورد نظر پیدا نشد.</value>
+  <data name="EmployeeDeleteTitle" xml:space="preserve">
+    <value>حذف پرسنل</value>
   </data>
-  <data name="RangeErrorMessage" xml:space="preserve">
-    <value>مقدار {0} باید بین  {1} و {2} باشد.</value>
+  <data name="EmployeeListButton" xml:space="preserve">
+    <value>لیست پرسنل</value>
   </data>
-  <data name="RegularExpressionErrorMessage" xml:space="preserve">
-    <value>مقدار {0} نا معتبر است.</value>
+  <data name="EmploymentCardTitle" xml:space="preserve">
+    <value>جزییات استخدام</value>
   </data>
-  <data name="ReqiuredErrorMessage" xml:space="preserve">
-    <value>فیلد {0} اجباری است.</value>
+  <data name="SearchButton" xml:space="preserve">
+    <value>جست‌وجو پرسنل</value>
   </data>
-  <data name="StringLengthErrorMessage" xml:space="preserve">
-    <value>طول فیلد {0} باید بین {2} و {1} حرف باشد.</value>
+  <data name="SearchEmployee" xml:space="preserve">
+    <value>جست‌وجو پرسنل :</value>
   </data>
-  <data name="SubmitErrorMessage" xml:space="preserve">
-    <value>خطا در ثبت اطلاعات</value>
+  <data name="SearchFoundResult" xml:space="preserve">
+    <value> مورد یافت شد.</value>
+  </data>
+  <data name="SearchInputPlaceholder" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="SearchNoResult" xml:space="preserve">
+    <value>هیچ پرسنلی با مشخصات وارد شده یافت نشد.</value>
+  </data>
+  <data name="ShowAllButton" xml:space="preserve">
+    <value>نمایش همه</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>فهرست پرسنل</value>
   </data>
 </root>

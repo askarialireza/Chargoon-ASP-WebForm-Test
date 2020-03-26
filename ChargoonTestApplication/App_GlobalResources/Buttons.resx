@@ -132,6 +132,12 @@
   <data name="Edit" xml:space="preserve">
     <value>ویرایش</value>
   </data>
+  <data name="ListEmployee" xml:space="preserve">
+    <value>لیست پرسنل</value>
+  </data>
+  <data name="ListEmploymentType" xml:space="preserve">
+    <value>لیست انواع استخدام</value>
+  </data>
   <data name="Reset" xml:space="preserve">
     <value>حالت اولیه</value>
   </data>

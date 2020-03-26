@@ -70,7 +70,7 @@ namespace ChargoonTestApplication.Pages.Employee
                         }
                     case 1:
                         {
-                            Infrastructure.Validation.ErrorMessages.Add("تاریخ استخدام نمی‌تواند برابر یا قبل از تاریخ تولد باشد.");
+                            Infrastructure.Validation.ErrorMessages.Add(Resources.EmployeeEdit.DateNotValid);
                             break;
                         }
                     case 0:

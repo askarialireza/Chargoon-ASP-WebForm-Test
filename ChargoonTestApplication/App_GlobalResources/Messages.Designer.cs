@@ -131,5 +131,14 @@ namespace Resources {
                 return ResourceManager.GetString("StringLengthErrorMessage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to خطا در ثبت اطلاعات.
+        /// </summary>
+        internal static string SubmitErrorMessage {
+            get {
+                return ResourceManager.GetString("SubmitErrorMessage", resourceCulture);
+            }
+        }
     }
 }

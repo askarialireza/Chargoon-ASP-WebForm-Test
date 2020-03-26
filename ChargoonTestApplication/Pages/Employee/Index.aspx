@@ -1,8 +1,8 @@
-﻿<%@ Page Title="فهرست پرسنل" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ChargoonTestApplication.Pages.Employee.Index" %>
+﻿<%@ Page Title="<%$ Resources:EmployeeIndex, Title %>" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ChargoonTestApplication.Pages.Employee.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h5><%= Resources.Pages.EmployeeIndex.Title %></h5>
+    <h5><%= Resources.EmployeeIndex.Title %></h5>
     <hr />
 
     <%
@@ -11,30 +11,34 @@
     %>
 
     <form class="form-inline mb-3">
-        <label class="mr-md-2"><%= Resources.Pages.EmployeeIndex.SearchEmployee %></label>
+        <label class="mr-md-2"><%= Resources.EmployeeIndex.SearchEmployee %></label>
         <div class="form-group">
-            <input class="form-control mb-1 mb-md-0 mr-md-2" id="search-input" placeholder="<%= Resources.Pages.EmployeeIndex.SearchInputPlaceholder %>" />
+            <input class="form-control mb-1 mb-md-0 mr-md-2" id="search-input" placeholder="<%= Resources.EmployeeIndex.SearchInputPlaceholder %>" />
         </div>
         <a class="btn btn-sm btn-primary mt-2 mt-md-0  mr-md-2 text-white" id="search-button">
-            <%= Resources.Pages.EmployeeIndex.SearchButton %>
+            <i class="fa fa-search"></i>
+            <%= Resources.EmployeeIndex.SearchButton %>
         </a>
-        <a class="btn btn-sm btn-warning mt-2 mt-md-0 text-white" id="show-all-button" style="display: none">نمایش همه
+        <a class="btn btn-sm btn-warning mt-2 mt-md-0 text-white" id="show-all-button" style="display: none">
+          <i class="fa fa-list"></i>
+            <%= Resources.EmployeeIndex.ShowAllButton %>
         </a>
         <a class="ml-auto btn btn-success text-white" href="/Employee/Create">
-            <%= Resources.Pages.EmployeeIndex.CreateEmployee %>
+            <i class="fa fa-plus-circle"></i>
+            <%= Resources.EmployeeIndex.CreateEmployee %>
         </a>
     </form>
 
     <div id="search-no-result">
         <div class="alert alert-warning">
-            <label><%= Resources.Pages.EmployeeIndex.SearchNoResult %></label>
+            <label><%= Resources.EmployeeIndex.SearchNoResult %></label>
         </div>
     </div>
 
     <div id="search-found-result">
         <div class="alert alert-success">
             <label id="result-count"></label>
-            <label><%= Resources.Pages.EmployeeIndex.SearchFoundResult %></label>
+            <label><%= Resources.EmployeeIndex.SearchFoundResult %></label>
         </div>
     </div>
 
@@ -42,13 +46,13 @@
         <table class="table table-sm table-bordered">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col"><%= Resources.Models.Employee.Id %></th>
-                    <th scope="col"><%= Resources.Models.Employee.FirstName %></th>
-                    <th scope="col"><%= Resources.Models.Employee.LastName %></th>
-                    <th scope="col"><%= Resources.Models.Employee.NationalCode %></th>
-                    <th scope="col"><%= Resources.Models.Employee.BirthDate %></th>
-                    <th scope="col"><%= Resources.Models.Employment.Type %></th>
-                    <th scope="col"><%= Resources.Models.Employment.Date %></th>
+                    <th scope="col"><%= Resources.Employee.Id %></th>
+                    <th scope="col"><%= Resources.Employee.FirstName %></th>
+                    <th scope="col"><%= Resources.Employee.LastName %></th>
+                    <th scope="col"><%= Resources.Employee.NationalCode %></th>
+                    <th scope="col"><%= Resources.Employee.BirthDate %></th>
+                    <th scope="col"><%= Resources.Employment.Type %></th>
+                    <th scope="col"><%= Resources.Employment.Date %></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -68,9 +72,11 @@
                     <td>
                         <div class="action-buttons">
                             <a class="btn btn-sm btn-danger text-white" data-employee-id="<%=item.Id %>" id="delete-employee-<%=item.Id%>" onclick="openModal(<%=item.Id%>)">
+                                <i class="fa fa-trash"></i>
                                 <%= Resources.Buttons.Delete %>
                             </a>
                             <a class="btn btn-sm btn-info" href="/Employee/Edit/<%=item.Id %>">
+                                <i class="fa fa-pencil"></i>
                                 <%= Resources.Buttons.Edit %>
                             </a>
                         </div>
@@ -100,17 +106,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"><%= Resources.Pages.EmployeeIndex.EmployeeDeleteTitle %></h4>
+                    <h4 class="modal-title"><%= Resources.EmployeeIndex.EmployeeDeleteTitle %></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <label><%= Resources.Pages.EmployeeIndex.EmployeeDeleteQuestion %></label>
+                    <label><%= Resources.EmployeeIndex.EmployeeDeleteQuestion %></label>
                 </div>
                 <div class="modal-footer">
                     <button id="delete-employee-modal-button" data-employee-id="1" class="btn btn-danger" onclick="deleteEmployee()">
+                        <i class="fa fa-trash"></i>
                         <%= Resources.Buttons.Delete %>
                     </button>
                     <button data-employee-id="1" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-ban"></i>
                         <%= Resources.Buttons.Cancel %>
                     </button>
                 </div>

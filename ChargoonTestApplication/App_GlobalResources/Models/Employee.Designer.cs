@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Buttons {
+    internal class Employee {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Buttons() {
+        internal Employee() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Buttons", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Employee", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,47 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to بازگشت.
+        ///   Looks up a localized string similar to تاریخ تولد.
         /// </summary>
-        internal static string Back {
+        internal static string BirthDate {
             get {
-                return ResourceManager.GetString("Back", resourceCulture);
+                return ResourceManager.GetString("BirthDate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to بازگشت به فهرست.
+        ///   Looks up a localized string similar to نام.
         /// </summary>
-        internal static string BackToIndex {
+        internal static string FirstName {
             get {
-                return ResourceManager.GetString("BackToIndex", resourceCulture);
+                return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لغو.
+        ///   Looks up a localized string similar to شماره پرسنلی.
         /// </summary>
-        internal static string Cancel {
+        internal static string Id {
             get {
-                return ResourceManager.GetString("Cancel", resourceCulture);
+                return ResourceManager.GetString("Id", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حذف.
+        ///   Looks up a localized string similar to نام خانوادگی.
         /// </summary>
-        internal static string Delete {
+        internal static string LastName {
             get {
-                return ResourceManager.GetString("Delete", resourceCulture);
+                return ResourceManager.GetString("LastName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ویرایش.
+        ///   Looks up a localized string similar to کد ملی.
         /// </summary>
-        internal static string Edit {
+        internal static string NationalCode {
             get {
-                return ResourceManager.GetString("Edit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to لیست پرسنل.
-        /// </summary>
-        internal static string ListEmployee {
-            get {
-                return ResourceManager.GetString("ListEmployee", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to لیست انواع استخدام.
-        /// </summary>
-        internal static string ListEmploymentType {
-            get {
-                return ResourceManager.GetString("ListEmploymentType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to حالت اولیه.
-        /// </summary>
-        internal static string Reset {
-            get {
-                return ResourceManager.GetString("Reset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ذخیره.
-        /// </summary>
-        internal static string Save {
-            get {
-                return ResourceManager.GetString("Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ثبت.
-        /// </summary>
-        internal static string Submit {
-            get {
-                return ResourceManager.GetString("Submit", resourceCulture);
+                return ResourceManager.GetString("NationalCode", resourceCulture);
             }
         }
     }

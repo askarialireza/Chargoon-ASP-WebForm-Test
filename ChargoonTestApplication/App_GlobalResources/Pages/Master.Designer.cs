@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Buttons {
+    internal class Master {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Buttons() {
+        internal Master() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Buttons", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Master", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,74 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to بازگشت.
+        ///   Looks up a localized string similar to ایجاد پرسنل.
         /// </summary>
-        internal static string Back {
+        internal static string LinkCreateEmployee {
             get {
-                return ResourceManager.GetString("Back", resourceCulture);
+                return ResourceManager.GetString("LinkCreateEmployee", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to بازگشت به فهرست.
+        ///   Looks up a localized string similar to ایجاد نوع استخدام.
         /// </summary>
-        internal static string BackToIndex {
+        internal static string LinkCreateEmploymentType {
             get {
-                return ResourceManager.GetString("BackToIndex", resourceCulture);
+                return ResourceManager.GetString("LinkCreateEmploymentType", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لغو.
+        ///   Looks up a localized string similar to پرسنل.
         /// </summary>
-        internal static string Cancel {
+        internal static string LinkEmployee {
             get {
-                return ResourceManager.GetString("Cancel", resourceCulture);
+                return ResourceManager.GetString("LinkEmployee", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حذف.
+        ///   Looks up a localized string similar to نوع استخدام.
         /// </summary>
-        internal static string Delete {
+        internal static string LinkEmploymentType {
             get {
-                return ResourceManager.GetString("Delete", resourceCulture);
+                return ResourceManager.GetString("LinkEmploymentType", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ویرایش.
+        ///   Looks up a localized string similar to صفحه اصلی.
         /// </summary>
-        internal static string Edit {
+        internal static string LinkHomePage {
             get {
-                return ResourceManager.GetString("Edit", resourceCulture);
+                return ResourceManager.GetString("LinkHomePage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لیست پرسنل.
+        ///   Looks up a localized string similar to فهرست پرسنل.
         /// </summary>
-        internal static string ListEmployee {
+        internal static string LinkIndexEmployee {
             get {
-                return ResourceManager.GetString("ListEmployee", resourceCulture);
+                return ResourceManager.GetString("LinkIndexEmployee", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لیست انواع استخدام.
+        ///   Looks up a localized string similar to فهرست انواع استخدام.
         /// </summary>
-        internal static string ListEmploymentType {
+        internal static string LinkIndexEmploymentType {
             get {
-                return ResourceManager.GetString("ListEmploymentType", resourceCulture);
+                return ResourceManager.GetString("LinkIndexEmploymentType", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حالت اولیه.
+        ///   Looks up a localized string similar to پروژه تستی شرکت چارگون.
         /// </summary>
-        internal static string Reset {
+        internal static string NavbarTitle {
             get {
-                return ResourceManager.GetString("Reset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ذخیره.
-        /// </summary>
-        internal static string Save {
-            get {
-                return ResourceManager.GetString("Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ثبت.
-        /// </summary>
-        internal static string Submit {
-            get {
-                return ResourceManager.GetString("Submit", resourceCulture);
+                return ResourceManager.GetString("NavbarTitle", resourceCulture);
             }
         }
     }

@@ -10,7 +10,7 @@ namespace ViewModels
         //********************************************************
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employee),
+            (ResourceType = typeof(Resources.Models.Employee),
             Name = "FirstName")]
 
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false,
@@ -21,7 +21,7 @@ namespace ViewModels
         //********************************************************
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employee),
+            (ResourceType = typeof(Resources.Models.Employee),
             Name = "LastName")]
 
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false,
@@ -32,7 +32,7 @@ namespace ViewModels
         //********************************************************
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employee),
+            (ResourceType = typeof(Resources.Models.Employee),
             Name = "NationalCode")]
 
         [System.ComponentModel.DataAnnotations.RegularExpression
@@ -48,7 +48,7 @@ namespace ViewModels
         //********************************************************
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employee),
+            (ResourceType = typeof(Resources.Models.Employee),
             Name = "BirthDate")]
 
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false,
@@ -59,7 +59,7 @@ namespace ViewModels
         //********************************************************
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employment),
+            (ResourceType = typeof(Resources.Models.EmploymentType),
             Name = "Date")]
 
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false,
@@ -71,7 +71,7 @@ namespace ViewModels
         //********************************************************
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employment),
+            (ResourceType = typeof(Resources.Models.EmploymentType),
             Name = "Type")]
 
         public int EmploymentType { get; set; }

@@ -9,7 +9,7 @@
 
 
         [System.ComponentModel.DataAnnotations.Display
-            (ResourceType = typeof(Resources.Employment),
+            (ResourceType = typeof(Resources.Models.EmploymentType),
             Name = "Name")]
 
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false,
